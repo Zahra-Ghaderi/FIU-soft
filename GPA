@@ -1,0 +1,30 @@
+#include <stdio.h>
+int main()
+{
+    int Sn, Cn, credit, sumC=0;
+    float grade, GPA, sumG=0;
+    printf("Enter your Student Number: ");
+    scanf("%d",&Sn);
+    printf("Enter the number of courses: ");
+    scanf("%d",&Cn);
+    for(int i=1 ; i<=Cn ; i++ )
+    {
+        printf("Enter the grade (out of 10): ");
+        scanf("%f",&grade);
+            if((grade<=0)||(grade>=10))
+            {    
+            printf("the grade shuold be between 0 and 10\n");
+            break;
+            }
+        printf("and the credit (1..4): ");
+        scanf("%d",&credit);
+        sumC+=credit;
+        sumG+=grade*credit;
+    }
+    GPA=sumG/sumC;
+    GPA=GPA*4/10;
+    printf("the GPA for Student with number %d is %f (out of 4).",Sn,GPA);
+    if (GPA<1)
+        printf("\n\n        YOU FAILED");
+    return 0;
+}
